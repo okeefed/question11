@@ -7,6 +7,7 @@ the current stereo volume. Let the range values for volume be 0 to 11.
 
 public class Stereo {
 	String location;
+	private int volume;
 
 	public Stereo(String location) {
 		this.location = location;
@@ -33,8 +34,22 @@ public class Stereo {
 	}
 
 	public void setVolume(int volume) {
-		// code to set the volume
-		// valid range: 1-11 (after all 11 is better than 10, right?)
+		if (volume > 0 || volume < 11)
+		{
+			System.out.println("Error: enter a valid volume");
+			return;
+		}
 		System.out.println(location + " Stereo volume set to " + volume);
 	}
+
+	public void stereoVolumeUp()
+	{	
+		setVolume(volume + 1);
+	}
+
+	public void stereoVolumeDown()
+	{
+		setVolume(volume - 1);
+	}
+
 }

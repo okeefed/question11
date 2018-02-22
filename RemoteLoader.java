@@ -14,7 +14,8 @@ public class RemoteLoader {
 		CeilingFan ceilingFan= new CeilingFan("Living Room");
 		GarageDoor garageDoor = new GarageDoor("");
 		Stereo stereo = new Stereo("Living Room");
-  
+		TV tv = new TV("Living Room");  
+
 		LightOnCommand livingRoomLightOn = 
 				new LightOnCommand(livingRoomLight);
 		LightOffCommand livingRoomLightOff = 
@@ -38,12 +39,28 @@ public class RemoteLoader {
 				new StereoOnWithCDCommand(stereo);
 		StereoOffCommand  stereoOff =
 				new StereoOffCommand(stereo);
- 
+ 		StereoVolumeUp volUp =
+				new StereoVolumeUp(stereo);
+		StereoVolumeDown volDown =
+				new StereoVolumeDown(stereo);
+		
+		TVOnCommand tvOn =
+				new TVOnCommand(tv);
+		TVOffCommand tvOff =
+				new TVOffCommand(tv);
+		TVUpCommand tvUp =
+				new TVUpCommand(tv);
+		TVDownCommand tvDown =
+				new TVDownCommand(tv);
+
 		remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
 		remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
 		remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
 		remoteControl.setCommand(3, stereoOnWithCD, stereoOff);
-  
+  		remoteControl.setCommand(4, volUp, volDown);
+		remoteControl.setCommand(5, tvOn, tvOff);
+		remoteControl.setCommand(6, tvUp, tvDown);
+
 		System.out.println(remoteControl);
  
 		remoteControl.onButtonWasPushed(0);
@@ -54,5 +71,11 @@ public class RemoteLoader {
 		remoteControl.offButtonWasPushed(2);
 		remoteControl.onButtonWasPushed(3);
 		remoteControl.offButtonWasPushed(3);
+		remoteControl.onButtonWasPushed(4);
+		remoteControl.offButtonWasPushed(4);
+		remoteControl.onButtonWasPushed(5);
+		remoteControl.offButtonWasPushed(5);
+		remoteControl.onButtonWasPushed(6);
+		remoteControl.offButtonWasPushed(6);
 	}
 }
